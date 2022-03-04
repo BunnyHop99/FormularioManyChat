@@ -1,0 +1,21 @@
+<body>
+    async checkNumber(phone: String): Promise
+    <boolean> { return await this.db .collection('restaurants') .doc(FirebaseService.getAppName()) .collection('clients', (ref) => ref.where('phone', '==', phone)) .get() .toPromise() .then(async (data) => { data.docs.forEach((doc) => { console.log(doc.id); });
+        console.log(data.empty); return data.empty; }); } allí se valida si existe primero async checkNumberRaffle(phone: String, raffleId: string): Promise
+        <boolean> { return await this.db .collection('restaurants') .doc(FirebaseService.getAppName()) .collection('clientRaffle', (ref) => ref.where('clientPhone', '==', phone).where('raffleId', '==', raffleId) ) .get() .toPromise() .then(async (data) => { console.log('la
+            info es la de abajo:'); if (data.empty) return data.empty; //Today check var todayDate = false; data.docs.forEach((doc) => { let x = doc.data(); if ( new Date(x.dateCreated).setHours(0, 0, 0, 0) === new Date(Date.now()).setHours(0, 0, 0, 0)
+            ) { todayDate = true; return; } }); return !todayDate; }); } Y allí si ya está registrado ese usuario a ese sorteo, en este caso como puede hacerlo una vez al día, es así lo de las horas async writeClientRaffleData(data): Promise
+            <any> { return await this.db .collection('restaurants') .doc(FirebaseService.getAppName()) .collection('clientRaffle') .add(data) .then((d) => { return d.id; }); } allí se agrega al sorteo async writeClientData(data): Promise
+                <any> { return await this.db .collection('restaurants') .doc(FirebaseService.getAppName()) .collection('clients') .add(data) .then((d) => { return d.id; }); } y así el usuario y ya todo el método es este en nuestro caso async dismiss(b) { if
+                    (b) { let date = this.getMonth(this.month) + '/' + (Number(this.day)
+                    < 10 ? '0' + this.day : this.day) + '/' + this.year; this.data.birthday=d ate; this.formatDate(date); console.log( 'Aceptar'); await this.firebase .checkNumberRaffle(
+                        this.areaCode + this.data.phone.toString(), this.raffleConfigOb.id ) .then(async (res)=> { if (!res) { this.error = this.phoneAlreadyInRaffle + ''; console.log( 'Error numero regitrado: ' + this.raffleConfigOb.id + ' ' + this.data.phone.toString() ); return; } if (!this.dateOk) { this.error = this.dateIsInvalid + ''; return;
+                        } if (this.dateOk && res && this.data.phone.toString().length >= 9) { if (this.isUnderaged(this.data.birthday)) { this.translate .get('FORMS.PROMO_UNDERAGED') .toPromise() .then((x) => { this.error = x; }); this.underaged = true;
+                        return; } let saveClientRaffleModel = { clientPhone: this.areaCode + this.data.phone.toString(), raffleId: this.raffleConfigOb.id, dateCreated: Date.now(), }; this.firebase.writeClientRaffleData(saveClientRaffleModel).then( (data)
+                        => { if (data) { localStorage.setItem( 'registeredRaffleId', this.raffleConfigOb.id ); //this.response.emit(true); console.log('Generated folio: ' + data); let URL = 'https://plusservicefb.uc.r.appspot.com/sendMessage?phone=' +
+                        this.areaCode + this.data.phone.toString() + '&message=' + this.raffleConfigOb.msg + ', Folio: ' + data.slice(data.length - 5); this.http.get(URL).subscribe((data) => { if (data) { console.log('Se mandó mensaje'); } else { console.log('No
+                        se pudo enviar mensaje'); } }); //this.router.navigate(['coupon', { code: data }]); //Check if user is already registered this.firebase .checkNumber(this.areaCode + this.data.phone) .then(async (resData) => { if (!resData) { this.response.emit(true);
+                        return; } let clientModel = { birthday: this.data.birthday, name: this.data.name, lastName: this.data.lastname, phone: this.areaCode + this.data.phone.toString(), timestamp: new Date().getTime(), }; this.firebase.writeClientData(clientModel).then(
+                        (data) => { if (data) { this.clientId = data; this.showBirthayConfigDialog = true; } }, (error) => { alert(error); } ); }); //this.response.emit(true); } }, (error) => { alert(error); } ); } }); } else { this.response.emit(b);
+                        } }
+</body>

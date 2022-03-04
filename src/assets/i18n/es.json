@@ -1,0 +1,41 @@
+{
+    "FORMS": {
+        "INVALID_EMAIL": "Email inválido",
+        "INVALID_NAME": "Nombre inválido",
+        "INVALID_LASTNAME": "Apellido inválido",
+        "SELECT_COLOR": "Selecciona un color",
+        "EMAIL_IN_USE": "El correo ya está en uso",
+        "EMAIL_IN_USE_BY": "El correo ya está en uso por ",
+        "PHONE_IN_USE": "El número de teléfono ya está en uso.",
+        "IS_ALREADY_REGISTERED_IN_RAFFLE": "El número de teléfono ya se encuentra registrado en éste sorteo. Mucha suerte!.",
+        "DATE_IS_INVALID": "La fecha de nacimiento es inválida. Usa el formato mm/dd/aaaa",
+        "PROMO_UNDERAGED": "Parece que aún no cumples 21 años. Lo sentimos, pero este programa de recompensas es para mayores de 21 años.",
+        "OOPS": "Oops!",
+        "USER_ALREADY_REGISTERED": "Este usuario ya está registrado.",
+        "IS_HOSTESS": "Registrar como hostess",
+        "IS_MAIN_WAITER": "Mesero principal",
+        "DO_YOU_WANT_GIFT": "¿Te gustaría recibir un regalo en tu cumpleaños?",
+        "YES": "Sí",
+        "NO": "No",
+        "EXAMPLE": "Ej. Bebida gratis, platillo y bebida gratis, un postre",
+
+        "DAY": "Día",
+        "MONTH": "Mes",
+        "YEAR": "Año",
+
+        "JANUARY": "Enero",
+        "FEBRUARY": "Febrero",
+        "MARCH": "Marzo",
+        "APRIL": "Abril",
+        "MAY": "Mayo",
+        "JUNE": "Junio",
+        "JULY": "Julio",
+        "AUGUST": "Agosto",
+        "SEPTEMBER": "Septiembre",
+        "OCTOBER": "Octubre",
+        "NOVEMBER": "Noviembre",
+        "DECEMBER": "Diciembre",
+
+        "GIVEAWAY_TEXT": "Ingresa tu información para participar en el sorteo:"
+    }
+}

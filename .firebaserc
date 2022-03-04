@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "form-app-cfbe1": {
+      "hosting": {
+        "contact": [
+          "form-app-cfbe1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "form-app-cfbe1"
+  }
+}

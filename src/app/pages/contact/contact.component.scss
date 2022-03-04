@@ -1,0 +1,123 @@
+textarea {
+    resize: none;
+}
+
+select {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+form.forMM {
+    margin-top: 5vh!important;
+    width: 40vw;
+    margin: auto;
+}
+
+div.radioForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3vh 0;
+}
+
+label.customRadioLabel {
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    height: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 1rem;
+    background-color: #007bff;
+    padding: 0 1.5vw;
+    margin: 1vh 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+div.radioFG {
+    display: flex;
+    margin: 1.5vh 0;
+}
+
+div.radioC {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+div.radioC input[type=radio] {
+    width: 3vw;
+    height: 3vw;
+    background-color: #ced4da;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.form-check-input.is-valid~.form-check-label,
+.was-validated .form-check-input:valid~.form-check-label {
+    color: #fff;
+}
+
+span.coolLabel {
+    width: 20vw;
+    height: 5vh;
+    text-align: center;
+    display: flex;
+    margin: 5vh auto;
+    font-size: 1.1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    form.forMM {
+        width: 90%;
+    }
+    div.mobileSelect {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    div.radioC input[type=radio] {
+        width: 8vw;
+        height: 8vw;
+    }
+    span.coolLabel {
+        width: 70vw!important;
+        height: 3vh!important;
+        font-size: 1rem;
+    }
+    div.radioFG {
+        width: 80vw!important;
+        margin: 5vh auto;
+    }
+    div.radioC {
+        width: 35vw;
+        margin: auto;
+    }
+    label.customRadioLabel {
+        width: 35vw;
+    }
+}

@@ -1,0 +1,17 @@
+nav.menu{
+    height: auto;
+    position: relative;
+
+    img{
+        display: block;
+        margin: 0 auto;
+        width: 15vw;
+        height: auto;
+        position: relative;
+    }
+}
+@media screen and (max-width: 768px){
+    img{
+        width:50vw!important;
+    }
+}

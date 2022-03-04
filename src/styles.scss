@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-image: url('http://londonribs.com/wp-content/uploads/2021/09/Sin-titulo-12.png');
+    background-size: 20vw;
+    background-position: center;
+}
+
+div.btnRow {
+    background-color: #007bff;
+    width: 20vw;
+    margin: auto;
+    height: 5vh;
+    display: flex;
+    border-radius: 5px;
+    a.btn-menu {
+        color: #fff;
+        font-size: 1rem;
+        font-family: sans-serif;
+        text-decoration: none;
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+.swal2-title {
+    color: #282828;
+}
+
+.badge-pill {
+    border-radius: 5px!important;
+    -webkit-border-radius: 5px!important;
+    -moz-border-radius: 5px!important;
+    -ms-border-radius: 5px!important;
+    -o-border-radius: 5px!important;
+}
+
+@media screen and (max-width:800px) {
+    body {
+        background-size: 70vw;
+    }
+}
