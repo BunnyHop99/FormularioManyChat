@@ -64,6 +64,13 @@
                     <option [value]="anho.valor" *ngFor="let anho of anhos">{{anho.nombre}}</option>
                 </select>
             </div>
+            <div class="col-sm">
+                <span class="badge badge-pill badge-primary">Restaurant</span>
+                <select class="form-control" name="restaurant" formControlName="restaurant" [class]="isValidField('restaurant')">
+                    <option value="" selected disabled>restaurant</option>
+                    <option [value]="restauran.valor" *ngFor="let restauran of res">{{restauran.nombre}}</option>
+                </select>
+            </div>
         </div>
         <span class="badge badge-pill badge-primary coolLabel">Cuentanos de dónde nos visitas</span>
         <div class="form-group radioFG">

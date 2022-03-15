@@ -46,6 +46,9 @@ export class ContactComponent implements OnInit {
     { valor: '1996', nombre: '1996' }, { valor: '1997', nombre: '1997' }, { valor: '1998', nombre: '1998' }, { valor: '1999', nombre: '1999' }, { valor: '2000', nombre: '2000' },
     { valor: '2001', nombre: '2001' }, { valor: '2002', nombre: '2002' }
   ]
+  res = [
+    { valor: 'London', nombre: 'London' }, { valor: 'TestRest', nombre: 'TestRest' }
+  ]
   meses = [
     { valor: '01', nombre: 'Enero' }, { valor: '02', nombre: 'Febrero' }, { valor: '03', nombre: 'Marzo' }, { valor: '04', nombre: 'Abril' }, { valor: '05', nombre: 'Mayo' },
     { valor: '06', nombre: 'Junio' }, { valor: '07', nombre: 'Julio' }, { valor: '08', nombre: 'Agosto' }, { valor: '09', nombre: 'Septiembre' }, { valor: '10', nombre: 'Octubre' },
@@ -69,21 +72,21 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.valid) {
       try {
         const formValue = this.contactForm.value;
-        await this.dataSvc.checkNumberRaffle(formValue.phone);
-        await this.dataSvc.checkNumber(formValue.phone);
-        await this.dataSvc.checkUserData(formValue.name, formValue.lastName, formValue.phone, formValue.email);
+        await this.dataSvc.checkNumberRaffle(formValue.phone, formValue.restaurant);
+        await this.dataSvc.checkNumber(formValue.phone, formValue.restaurant);
+        await this.dataSvc.checkUserData(formValue.name, formValue.lastName, formValue.phone, formValue.email, formValue.restaurant);
         //await this.dataSvc.writeClientRaffleData(formValue.name, formValue.lastName, formValue.phone, formValue.email);
-        await this.dataSvc.writeClientRaffleData(formValue.phone, formValue.month, formValue.day, formValue.year).then(
+        await this.dataSvc.writeClientRaffleData(formValue.phone, formValue.month, formValue.day, formValue.year, formValue.restaurant).then(
           (data) => {
             if (data) {
               this.dataSvc
-                .checkNumber(formValue.phone)
+                .checkNumber(formValue.phone, formValue.restaurant)
                 .then(async (resData) => {
                   if (!resData) {
                     this.response.emit(true);
                     return;
                   } else if (resData) {
-                    this.dataSvc.writeClientData(formValue.name, formValue.lastName, formValue.email, formValue.phone, formValue.month, formValue.day, formValue.year, formValue.sucursal);
+                    this.dataSvc.writeClientData(formValue.name, formValue.lastName, formValue.email, formValue.phone, formValue.month, formValue.day, formValue.year, formValue.restaurant);
                   }
                 });
             }
@@ -126,7 +129,7 @@ export class ContactComponent implements OnInit {
       year: ['', [Validators.required]],
       email: ['', [Validators.pattern(this.isEmail)]],
       phone: ['', [Validators.required, Validators.pattern(this.isPhoneNumber)]],
-      sucursal: ['', [Validators.required]]
+      restaurant: ['', [Validators.required]],
     });
   }
 }
