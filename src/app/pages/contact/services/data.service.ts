@@ -29,7 +29,7 @@ export class DataService {
 
   }
   //check number raffle
-  async checkNumberRaffle(phone: string): Promise<boolean> {
+  async checkNumberRaffle(phone: string, res:any): Promise<boolean> {
     return await this.db
       .collection('restaurants')
       .doc('London')
@@ -57,10 +57,10 @@ export class DataService {
       });
   }
   //check phone number
-  async checkNumber(phone: String): Promise<boolean> {
+  async checkNumber(phone: String, res:any): Promise<boolean> {
     return await this.db
       .collection('restaurants')
-      .doc('London')
+      .doc(res)
       .collection('clients', (ref) => ref.where('phone', '==', phone))
       .get()
       .toPromise()
@@ -77,7 +77,8 @@ export class DataService {
     name: string,
     lastName: string,
     phone: string,
-    email: string
+    email: string,
+    res:any
   ): Promise<boolean> {
     let nombre = name + lastName;
     let phoneNumber = phone;
@@ -85,7 +86,7 @@ export class DataService {
 
     return await this.db
       .collection('restaurants')
-      .doc('London')
+      .doc(res)
       .collection('clients', (ref) =>
         ref
           .where('name', '==', nombre)
@@ -101,17 +102,17 @@ export class DataService {
       });
   }
   //write client raffle data
-  async writeClientRaffleData(phone: string, mes:any, dia:any,anho:any): Promise<string> {
+  async writeClientRaffleData(phone: string, mes:any, dia:any,anho:any, res:any): Promise<string> {
     let clientPhone = '+52' + phone;
     let date =  Date.now();
     let dateCreated =  date;
-    let raffleId = 'londonRaffle01';
+    let raffleId = 'londonRaffle02';
     let birthday = mes + '/' + dia + '/' + anho;
     let data = {  clientPhone, raffleId, birthday, dateCreated }
 
     return await this.db
       .collection('restaurants')
-      .doc('London')
+      .doc(res)
       .collection('clientRaffle')
       .add(data)
       .then((d) => {
@@ -119,20 +120,21 @@ export class DataService {
       });
   }
   //write client
-  async writeClientData(nombre: any, apellido: any, correo: any, telefono: any, mes: any, dia: any, anho: any, place: any): Promise<any> {
+  async writeClientData(nombre: any, apellido: any, correo: any, telefono: any, mes: any, dia: any, anho: any, res:any): Promise<any> {
     let name = nombre;
     let lastName = apellido;
     let email = correo;
     let phone = '+52' + telefono;
     let birthday = mes + '/' + dia + '/' + anho;
-    let sucursal = place;
     let date =  Date.now();
     let timestamp =  date;
+    let fb:boolean = true;
+    let idunico:string = Math.random().toString();
    
-    let data = { name, lastName, email, phone, birthday, sucursal, timestamp }
+    let data = { name, lastName, email, phone, birthday, timestamp, fb, idunico}
     return await this.db
       .collection('restaurants')
-      .doc('London')
+      .doc(res)
       .collection('clients')
       .add(data)
       .then((d) => {
